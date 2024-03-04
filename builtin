@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+# Nome: Teste_B
+# Descricao: Verificar se um comando é interno ou externo
+# Autor:  Jonathan Nasc. Dutra
+# OBS: Arquivo criado com base nos videos do Blau : https://www.youtube.com/@debxp
+# Versao: 0001
+
+msg="Informe um comando "
+
+# comando a ser testado 
+
+[[ $# -ne 1 ]] && echo $msg && exit 1
+help $1 &> /dev/null
+
+# teste
+
+[[ $? -eq 0 ]] && echo "Comando: INTERNO" || echo "Comando: EXTERNO"
+
+exit 0
+
+
+# $#-->    Variavel que informa o numero de argumentos que foi passada para 
+#        o codigo (EX: builtin md ls mkdir
+#               - Nesse caso o $# = 3)
+# $1-->    Variavel que armazena o primeiro argumento 
+#             informado para o codigo ( EX: builtin md ls mkdir
+#                _ Nesse caso o $1 = md)
+# $?-->   Variavel que  guarda o resultada da saida do ultimo
+#       comando executado, caso o valor seja 0 o comando foi 
+#       executado de maneira correta, caso seja diferente de 0
+#       o comando apresentou algum  erro. 
