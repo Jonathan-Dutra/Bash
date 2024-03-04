@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 
-# Nome: Teste_B
-# Descricao: Verificar se um comando é interno ou externo
-# Autor:  Jonathan Nasc. Dutra
-# OBS: Arquivo criado com base nos videos do Blau : https://www.youtube.com/@debxp
-# Versao: 0001
+[[ $# -ne 1 ]] && echo " Informe apenas um nome!!" && exit 1
+[[ -f $1.sh ]] && echo "Esse aquivo já existe" && exit 2
+echo '#!/usr/bin/env bash'> $1.sh
+echo "# Nome: "$1 >> $1.sh
+echo '# Descricao: '>> $1.sh
+echo '# Autor:  Jonathan Nasc. Dutra < jonatthan.dutra@gmail.com >' >> $1.sh
+echo '# OBS: Arquivo criado com base nos videos do Blau : https://www.youtube.com/@debxp' >> $1.sh
+echo '# Versao: 0001'>>$1.sh
 
+chmod u+x $1.sh
+nano $1.sh
+exit 0
