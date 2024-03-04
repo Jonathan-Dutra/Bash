@@ -26,6 +26,6 @@ cabecalho="#!/usr/bin/env bash
 # Criação do aruivo
 echo "$cabecalho">$1.sh
 
-chmod u+x $1.sh
+chmod uo+x $1.sh
 nano $1.sh
 exit 0
