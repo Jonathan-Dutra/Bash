@@ -1,13 +1,30 @@
 #!/usr/bin/env bash
 
+#Variaveis 
+data_criacao=$( date +'%d/%m/%Y')
+cabecalho="#!/usr/bin/env bash
+
+
+#----------------| Script-$1 |-------------------
+#
+# Nome: $1
+# Descricao:
+# Autor: Jonathan Nas. Dutra <jonatthan.dutra@gmail.com>
+# Data:  $data_criacao
+# Versão: 00.1
+# Licença: GNU/GPL v3.0 
+# OBS: Arquivo criado com base nos videos do Blau : https://www.youtube.com/@debxp
+#----------------------------------------------------
+# Uso:
+#
+#----------------------------------------------------"
+# Teste
+
 [[ $# -ne 1 ]] && echo " Informe apenas um nome!!" && exit 1
 [[ -f $1.sh ]] && echo "Esse aquivo já existe" && exit 2
-echo '#!/usr/bin/env bash'> $1.sh
-echo "# Nome: "$1 >> $1.sh
-echo '# Descricao: '>> $1.sh
-echo '# Autor:  Jonathan Nasc. Dutra < jonatthan.dutra@gmail.com >' >> $1.sh
-echo '# OBS: Arquivo criado com base nos videos do Blau : https://www.youtube.com/@debxp' >> $1.sh
-echo '# Versao: 0001'>>$1.sh
+
+# Criação do aruivo
+echo "$cabecalho">$1.sh
 
 chmod u+x $1.sh
 nano $1.sh
